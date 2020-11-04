@@ -1,0 +1,20 @@
+/*此文件中包含所有页面都共用的全局CSS*/
+*{
+	
+	box-sizing: border-box;
+}
+body{
+	margin: 0;
+	color:#555;
+	background:#fff;
+	font-family:"arial,helvetica,sans-serif";
+	font-size:12px;
+	line-height:1.667;
+}
+a {
+	color:#555;
+	text-decoration:none;
+}
+a:hover{
+	color:#f60;
+}
