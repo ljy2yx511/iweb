@@ -39,7 +39,7 @@
 			}
 			.search{
 				float: right;
-				margin-top: 6px;
+				margin-top: 9px;
 			}
 			.searcher>.container{
 			padding-top:2em;
@@ -63,6 +63,42 @@
 			line-height:32px;
 			text-align: center;
 			}
+			.cart{
+				float: right;
+				background:#f9f9f9;
+				border: 1px solid #ddd;
+				line-height: 30px;
+				margin-top: 6px;
+				margin-left: 20px;
+				cursor: pointer;
+				position: relative;
+			}
+			
+			.cart> .fa{
+				padding-left: 0.6em;
+				padding-right: 0.6em;
+				
+				color:#57BC4C;
+				}
+				.cart > .caret {
+				transform: rotate(0);
+				transform: all  .3s;
+			}
+			.cart> .caret-rotate{
+				transform:rotate(180deg);
+				}
+				.cart> .dropdown{
+					position:absolute;
+					top: 30px;
+					right: -1px;
+					border: 1px solid #f00;
+					padding: 2em  3em ;
+					widows: 262px;
+					background: #fff;
+					
+				}
+			}
+	
 	</style>
 	
 </head>
@@ -88,14 +124,32 @@
 			</span>
 	    </div>
    </div>
+   
 	<div class="searchbar">
 		<div class="container">
-			<div class="search">
 			<img src="img/logo.png" alt="iWeb LOGO">
-			<input type="text" placeholder="课程搜索"><span class="fa fa-search fa-lg"></span>
+			<div></div>
+			<div class="cart" id="myCart">
+			<span class="fa fa-shopping-cart fa-lg"></span>
+			<span>我的购物车(<b>0</b>)</span>
+			<span class="fa fa-caret-down caret" id="caret"></span>
+			<div class="dropdown">
+				请登录后查看你的购物车
+			</div>
+		</div>
+			<div class="search">
+			<input type="text" placeholde"课程搜索">
+			<span class="fa fa-search fa-lg"></span>
 		    </div>
 		</div>
-		   
 	</div>
+	<script>
+		myCart.onmouseenter = ()=>{
+			caret.classList.add('caret-rotate')
+		}
+		myCart.onmouseleave = ()=>{
+			caret.classList.remove('caret-rotate')	
+		}
+	</script>
 </body>
 </html>
