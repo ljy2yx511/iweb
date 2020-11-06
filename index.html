@@ -6,150 +6,199 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="icon" href="img/favicon.ico">
 	<title>iweb在线课堂</title>
-	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet"  href="css/base.css"/>
 	<link rel="stylesheet" href="css/font-awesome.css">
 	<style>
 		.topbar{
-			height:29px;
+			width: 100%;
+			height: 29px;
 			line-height: 29px;
-			background: #f9f9f9;
+			background: #F9F9F9;
 			border-bottom: 1px solid #eee;
 			text-align: right;
-			
 		}
 		.container{
 			width: 1000px;
 			margin-left: auto;
 			margin-right: auto;
-			border:1px solid #aaa ;
+			/* border:1px solid #aaa; */
 		}
-		.topbar > .container > a,
-		.topbar > .container > span {
-			padding-left: 1em;
+		.topbar>.container>a,
+		.topbar>.container>span{
+			padding-left:1em ;
 		}
-		.theme{
+		.theme{/*主题色*/
 			
 		}
-		.theme-reverse{
-			color:#black;
+		.theme-reverse{/*主题色反色*/
+			color: #f60;
 		}
-		.searcher{
-			width:100%;
+		
+		.searchbar{
 			background: #fff;
-			}
-			.search{
-				float: right;
-				margin-top: 9px;
-			}
-			.searcher>.container{
-			padding-top:2em;
-			padding-bottom:2em;
-			}
-			.search > input{
-				width: 430px;
-				height: 32px;
-				border: 1px solid #ccc;
-				outline: none;
-				padding-right: .6em;
-				padding-left: .6em;
-			}
-			.search > .fa-search{
+			 
+		}
+		.searchbar>.container{
+			padding-top:2em ;
+			padding-bottom: 2em;
+		}
+		
+		.search{/*搜索条右浮动*/
+			float: right;
+			padding-top:8px;
+		}
+		.search>input{
+			width: 430px;
+			height: 32px;
+			border: 1px solid #ccc;
+			outline:none;
+			padding-left: .8em;
+			padding-right: .8em;
+		}
+		.search>.fa-search{
 			background: #57bc4c;
-			color:#fff;
-			font-size:1.4em;
+			color: #fff;
 			width: 50px;
 			height: 32px;
-			display:inline;
-			line-height:32px;
+			font-size: 2.2em;
+			line-height: 32px;
 			text-align: center;
-			}
-			.cart{
-				float: right;
-				background:#f9f9f9;
-				border: 1px solid #ddd;
-				line-height: 30px;
-				margin-top: 6px;
-				margin-left: 20px;
-				cursor: pointer;
-				position: relative;
-			}
+		}
+		
+		.cart-container{
+			position: relative;
+			float: right;
+		}
+		.cart{
+			background: #f9f9f9;
+		    border:1px solid #ddd;
+			line-height: 30px;/*行高*/
+			margin-top: 8px;
+			margin-left: 20px;
+			/* 修改光标的样式 */
+			cursor: pointer;
+			/* 只有定位的元素才能使用z-index*/
+			position: relative;
+			z-index: 1;
+		}
+		.cart.open{
+			line-height: 31px;
+			background: #fff;
+			border-bottom: none;
+		}
+		.cart>.fa{
+			padding-left: .6em;
+			padding-right: .6em;
+			color: #57BC4C;
+		}
+		.cart>.caret{
 			
-			.cart> .fa{
-				padding-left: 0.6em;
-				padding-right: 0.6em;
-				
-				color:#57BC4C;
-				}
-				.cart > .caret {
-				transform: rotate(0);
-				transform: all  .3s;
-			}
-			.cart> .caret-rotate{
-				transform:rotate(180deg);
-				}
-				.cart> .dropdown{
-					position:absolute;
-					top: 30px;
-					right: -1px;
-					border: 1px solid #f00;
-					padding: 2em  3em ;
-					widows: 262px;
-					background: #fff;
-					
-				}
-			}
-	
+			transform: rotate(0);
+			transition: all .3s;
+		}
+		.cart>.caret-rotate{
+			transform: rotate(180deg);
+		}
+		.cart-container>.dropdown{
+			position: absolute;/*绝对定位的元素可以处于其他元素上方*/
+			right: 0;
+			top: 39px;
+			border: 1px solid #ddd;
+			padding: 2em 3em;/*上右*/
+			width: 262px;
+			background: #fff;
+			display: none;			
+		}
+		.cart-container>.dropdown.open{
+			display: block;
+		}
+		.navbar {
+			background: #57BC4C;
+			widows: 100%;
+			height: 42px;
+			border-bottom: 2px solid #c1eebd;
+			line-height: 42px;
+			color: #fff;
+			font-style: 1.2em;
+		}
 	</style>
-	
 </head>
 <body>
+      <!-- 顶部条 -->
 	<div class="topbar">
-	<div class="container">
-		<a href="#">
-			<span class="fa fa-star"></span>
-			收藏i前端
+		
+		<div class="container">
+			<a href="#">
+				<span class="fa fa-star"></span>
+				收藏i前端
 			</a>
 			<a href="#">
-					<span class="fa fa-mobile-phone fa-lg"></span>
-					<span class="theme-reverse">下载手机客户端</span>
+				<span class="fa fa-mobile-phone fa-lg"></span>
+				<span class="theme-reverse">下载手机客户端</span>
 			</a>
 			<span>
 				<span class="fa fa-envelope"></span>
-					反馈邮箱:iweb@tedu.cn
-				</span>
-				<span>
-				<span class="fa fa-headphones fa-lg"></span>
-					客服热线:4008-200-200
-				</span>
+				反馈邮箱：iweb@tedu.cn
 			</span>
-	    </div>
-   </div>
-   
+			<span>
+				<span class="fa fa-phone fa-lg "></span>
+				客服电话：4008-200-200
+			</span>
+		</div>
+	</div>
+
+      <!-- 1搜索条 -->
 	<div class="searchbar">
 		<div class="container">
 			<img src="img/logo.png" alt="iWeb LOGO">
-			<div></div>
-			<div class="cart" id="myCart">
-			<span class="fa fa-shopping-cart fa-lg"></span>
-			<span>我的购物车(<b>0</b>)</span>
-			<span class="fa fa-caret-down caret" id="caret"></span>
-			<div class="dropdown">
-				请登录后查看你的购物车
+			
+			<!-- 3我的购物车 -->
+			<div class="cart-container"	id="myCart">
+				<!-- 购物车 -->
+				<div class="cart" id="cart">
+				<span class="fa fa-shopping-cart fa-lg"></span>
+				<span>我的购物车(<b>0</b>)</span>
+				<span class="fa fa-caret-down caret " id="caret"></span>
+				</div>
+				<!-- 下拉菜单 -->
+				<div class="dropdown" id="dropdown">
+					请登录后查看您的购物车
+				</div>
+			
+			</div>
+			
+			<!-- 2输入框 -->
+			<div class="search">
+			<input type="text" placeholder="课程搜索" >
+			<span class="fa fa-search fa-lg"></span>
 			</div>
 		</div>
-			<div class="search">
-			<input type="text" placeholde"课程搜索">
-			<span class="fa fa-search fa-lg"></span>
-		    </div>
-		</div>
 	</div>
-	<script>
-		myCart.onmouseenter = ()=>{
+	
+	<div class="navbar">
+		<div class="container">导航条</div>
+		<u1 class="menu">
+			<li><a href="index.html">首页</a></li>
+			<li><a href="course.html">全部课程</a></li>
+			<li><a href="course.html?tid=1">基础课程</a></li>
+			<li><a href="course.html?tid=2">核心课程</a></li>
+			<li><a href="course.html?tid=3">进阶课程</a></li>
+			<li><a href="teacher.html">名师堂</a></li>
+			<li><a href="school.html">校区</a></li>
+		</u1>
+	</div>
+    <script>
+		//鼠标进入“我的购物车”，则小三角旋转
+		myCart.onmouseenter = () =>{
 			caret.classList.add('caret-rotate')
+			cart.classList.add('open')
+			dropdown.classList.add('open')
 		}
-		myCart.onmouseleave = ()=>{
-			caret.classList.remove('caret-rotate')	
+		myCart.onmouseleave = () =>{
+		    caret.classList.remove('caret-rotate')
+			cart.classList.remove('open')
+			dropdown.classList.remove('open')
 		}
-	</script>
+	</script> 
 </body>
 </html>
